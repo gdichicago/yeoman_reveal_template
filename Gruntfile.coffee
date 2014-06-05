@@ -1,4 +1,4 @@
-# Generated on 2014-06-05 using generator-reveal 0.3.7
+# Generated on 2014-05-20 using generator-reveal 0.3.6
 module.exports = (grunt) ->
 
     grunt.initConfig
@@ -14,6 +14,7 @@ module.exports = (grunt) ->
                     'slides/*.html'
                     'js/*.js'
                     'css/*.css'
+                    'img/**'
                 ]
 
             index:
@@ -31,9 +32,9 @@ module.exports = (grunt) ->
             jshint:
                 files: ['js/*.js']
                 tasks: ['jshint']
-        
+
             sass:
-                files: ['css/source/theme.scss']
+                files: ['css/source/theme.scss', 'css/source/exercises.scss']
                 tasks: ['sass']
 
         sass:
@@ -41,7 +42,9 @@ module.exports = (grunt) ->
             theme:
                 files:
                     'css/theme.css': 'css/source/theme.scss'
-        
+                    'css/exercises.css': 'css/source/exercises.scss'
+                    'css/website.css': 'css/source/website.scss'
+
         connect:
 
             livereload:
@@ -79,16 +82,17 @@ module.exports = (grunt) ->
                         'bower_components/**'
                         'js/**'
                         'css/*.css'
+                        'img/**'
                     ]
-                    dest: 'dist/'
+                    dest: 'slideshow/'
                 },{
                     expand: true
                     src: ['index.html']
-                    dest: 'dist/'
+                    dest: 'slideshow/'
                     filter: 'isFile'
                 }]
 
-        
+
 
 
     # Load all grunt tasks.
@@ -132,7 +136,7 @@ module.exports = (grunt) ->
             'copy'
         ]
 
-    
+
 
     # Define default task.
     grunt.registerTask 'default', [
