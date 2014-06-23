@@ -37,3 +37,6 @@ body {
       color: #2d3e50; }
   .reveal .slides section .strike {
     text-decoration: line-through; }
+
+.reveal .progress span {
+  background-color: #1bbc9b; }
